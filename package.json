@@ -1,0 +1,60 @@
+{
+  "name": "wictory-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "cli of vue-project(vue3)",
+  "bin": {
+    "wictory-cli": "./lib/bin.js"
+  },
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "rimraf ./lib && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wictorysnake/vue-project-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wictorysnake/vue-project-cli/issues"
+  },
+  "homepage": "https://github.com/Wictorysnake/vue-project-cli#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "commander": "^11.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-vue": "^9.19.2",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "picocolors": "^1.0.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@types/fs-extra": "^11.0.4",
+    "@types/glob": "^8.1.0",
+    "@types/node": "^20.10.7",
+    "gradient-string": "^2.0.2",
+    "lint-staged": "^15.2.0",
+    "rimraf": "^5.0.5",
+    "simple-git-hooks": "^2.9.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --allow-empty --concurrent false",
+    "commit-msg": "pnpm exec --no -- commitlint --edit $1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,vue,less}": "prettier --write",
+    "*.{ts,tsx,js,vue}": "eslint --fix"
+  }
+}
